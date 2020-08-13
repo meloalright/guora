@@ -1,0 +1,5 @@
+.DS_Store
+*.db
+/vendor
+main
+log.txt
