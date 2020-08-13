@@ -1,4 +1,4 @@
-![ui](./website/static/assets/ui.png)
+![ui](https://user-images.githubusercontent.com/11075892/90159118-80a65600-ddc2-11ea-91f4-b1afa0fe7818.png)
 
 # Guora
 
