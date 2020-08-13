@@ -7,7 +7,7 @@ redis:
   db: 0
 admin:
   name: Guora Robot (管理员)
-  mail: admin@guora.mydomain
+  mail: admin@localhost
   password: mypassword
 secretkey: JustWriteSomethingWhatYouLike
 address: :8080

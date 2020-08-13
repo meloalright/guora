@@ -41,10 +41,10 @@ $ (sudo) go run main.go
 
 `5.Visit localhost:8080 and Log in as Admin`
 
-|                 |                      |
-| --------------- | -------------------- |
-| mail (邮箱)     | admin@guora.mydomain |
-| password (密码) | mypassword           |
+|                     |                 |
+| ------------------- | --------------- |
+| mail (默认邮箱)     | admin@localhost |
+| password (默认密码) | mypassword      |
 
 ## Run Test
 
