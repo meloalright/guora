@@ -24,7 +24,7 @@ func Administrator() gin.HandlerFunc {
 			return
 		}
 
-		// check user ID is type 1 or not
+		// check user if Type is 100 or not
 		var u model.User
 		u.ID = value
 

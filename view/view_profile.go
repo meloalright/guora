@@ -78,7 +78,7 @@ func ViewProfile(c *gin.Context) {
 
 	}
 
-	card := c.Query("card")
+	card := c.Query("card") // card = answer | question | document
 	if err != nil {
 		c.JSON(200, h.Response{
 			Status:  500,

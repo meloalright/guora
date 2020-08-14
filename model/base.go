@@ -10,8 +10,6 @@ type GORMBase struct {
 	ID        int   `json:"id" gorm:"AUTO_INCREMENT"`
 	CreatedAt int64 `json:"createAt"`
 	UpdatedAt int64 `json:"updateAt"`
-	// CreatedAt time.Time `json:"createAt"`
-	// UpdatedAt time.Time `json:"updateAt"`
 }
 
 func (m *GORMBase) BeforeUpdate(scope *gorm.Scope) error {
