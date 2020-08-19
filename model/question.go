@@ -3,6 +3,7 @@ package model
 import (
 	"log"
 
+	"github.com/jinzhu/gorm"
 	"github.com/meloalright/guora/database"
 )
 
@@ -82,6 +83,18 @@ func (q *Question) GetOrderList(limit int, offset int, order string) (questions 
 func (q *Question) GetCounts() (counts int, err error) {
 
 	if err = database.SQLITE3DB.Model(&Question{}).Where(&q).Count(&counts).Error; err != nil {
+		log.Print(err)
+	}
+
+	return
+}
+
+func (q *Question) AfterDelete(tx *gorm.DB) (err error) {
+
+	var a Answer
+	a.QuestionID = q.ID
+
+	if err = tx.Where(&a).Delete(&a).Error; err != nil {
 		log.Print(err)
 	}
 
