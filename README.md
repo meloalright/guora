@@ -39,7 +39,7 @@ $ (sudo) go run init/init.go
 $ (sudo) go run main.go
 ```
 
-`5.Visit localhost:8080 and Log in as Admin`
+`5.Visit localhost:8080 and Log in as admin`
 
 |                     |                 |
 | ------------------- | --------------- |
@@ -54,7 +54,7 @@ $ (sudo) go run init/init.go
 $ (sudo) go test
 ```
 
-## Source
+## Source Code
 
 Repository: [Guora](https://github.com/meloalright/guora)
 
