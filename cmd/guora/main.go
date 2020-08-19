@@ -3,7 +3,7 @@ package main
 import (
 	"flag"
 	"github.com/gin-gonic/gin"
-	"github.com/meloalright/guora/configuration"
+	"github.com/meloalright/guora/conf"
 	"github.com/meloalright/guora/controller/rest"
 	"github.com/meloalright/guora/controller/web"
 	"github.com/meloalright/guora/middleware"
@@ -11,13 +11,6 @@ import (
 )
 
 func SetupRouter() (r *gin.Engine) {
-	var shouldInit = flag.Bool("init", false, "initialize all")
-	flag.Parse()
-
-	if *shouldInit {
-		initAll()
-	}
-
 	r = gin.Default()
 
 	r.Use(middleware.Logger())
@@ -107,8 +100,14 @@ func SetupRouter() (r *gin.Engine) {
 }
 
 func main() {
+	var shouldInit = flag.Bool("init", false, "initialize all")
+	flag.Parse()
+
+	if *shouldInit {
+		initAll(conf.Config())
+	}
 
 	r := SetupRouter()
 
-	r.Run(configuration.C.Address)
+	r.Run(conf.Config().Address)
 }

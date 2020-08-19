@@ -1,4 +1,4 @@
-package configuration
+package conf
 
 import (
 	"fmt"
@@ -26,23 +26,29 @@ type Configuration struct {
 	Secretkey string `json:"secretkey"`
 }
 
-var C Configuration
+var conf *Configuration
 
-func init() {
+func Config() *Configuration {
+	if conf != nil {
+		return conf
+	}
+
 	var err error
 
 	viper.SetConfigName("configuration")
-	viper.AddConfigPath("./")
+	viper.AddConfigPath("./conf")
 	viper.SetConfigType("yaml")
 
 	if err = viper.ReadInConfig(); err != nil {
 		fmt.Printf("config file error: %s\n", err)
 		os.Exit(1)
 	}
-	if err = viper.Unmarshal(&C); err != nil {
+	if err = viper.Unmarshal(&conf); err != nil {
 		fmt.Println("config file error:", err)
 		os.Exit(1)
 	}
 
-	fmt.Println("Configuration.C", C)
+	fmt.Println("Configuration.conf", conf)
+
+	return conf
 }

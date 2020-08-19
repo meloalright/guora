@@ -3,14 +3,14 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/meloalright/guora/configuration"
+	"github.com/meloalright/guora/conf"
 	"github.com/meloalright/guora/database"
 	"github.com/meloalright/guora/model"
 )
 
 var ctx = context.Background()
 
-func initAll() {
+func initAll(conf *conf.Configuration) {
 
 	database.RDB.FlushDB(ctx)
 	fmt.Println("redis flushdb.")
@@ -58,10 +58,10 @@ func initAll() {
 	database.SQLITE3DB.AutoMigrate(&model.Reply{})
 	database.SQLITE3DB.AutoMigrate(&model.Supporter{})
 
-	p0 := model.Profile{Name: configuration.C.Admin.Name, Desc: "This is " + configuration.C.Admin.Name}
+	p0 := model.Profile{Name: conf.Admin.Name, Desc: "This is " + conf.Admin.Name}
 	p0.Create()
 
-	database.SQLITE3DB.Create(&model.User{Mail: configuration.C.Admin.Mail, Password: configuration.C.Admin.Password, Authorized: 1, Type: 100, ProfileID: p0.ID})
+	database.SQLITE3DB.Create(&model.User{Mail: conf.Admin.Mail, Password: conf.Admin.Password, Authorized: 1, Type: 100, ProfileID: p0.ID})
 
 	q0 := model.Question{Title: "How to use the Guora?", Desc: `{"blocks":[{"key":"9s4bh","text":"How should we use it?","type":"unstyled","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}}],"entityMap":{}}`, Type: 0, QuestionProfile: p0}
 	q1 := model.Question{Title: "这玩意咋用？", Desc: `{"blocks":[{"key":"bvelr","text":"这个 Guora 究竟如何使用？","type":"unstyled","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}}],"entityMap":{}}`, Type: 0, QuestionProfile: p0}

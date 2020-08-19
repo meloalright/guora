@@ -2,10 +2,10 @@ package database
 
 import (
 	"context"
+	"github.com/meloalright/guora/conf"
 	"log"
 
 	"github.com/go-redis/redis/v8"
-	"github.com/meloalright/guora/configuration"
 )
 
 var RDB *redis.Client
@@ -14,9 +14,9 @@ var ctx = context.Background()
 func init() {
 
 	RDB = redis.NewClient(&redis.Options{
-		Addr:     configuration.C.Redis.Addr,
-		Password: configuration.C.Redis.Password,
-		DB:       configuration.C.Redis.Db,
+		Addr:     conf.Config().Redis.Addr,
+		Password: conf.Config().Redis.Password,
+		DB:       conf.Config().Redis.Db,
 	})
 
 	if dbsize, err := RDB.DBSize(ctx).Result(); err != nil {
