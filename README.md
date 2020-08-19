@@ -34,9 +34,9 @@ Open the `configuration.yaml` and edit your redis config.
 `4.Init and Run`
 
 ```shell
-$ (sudo) go run init/init.go
-
-$ (sudo) go run main.go
+$ (sudo) go run github.com/meloalright/guora/cmd/guora -init=true (if you want to initialize all then run)
+or
+$ (sudo) go run github.com/meloalright/guora/cmd/guora
 ```
 
 `5.Visit localhost:8080 and Log in as admin`

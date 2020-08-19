@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"fmt"
-
 	"github.com/meloalright/guora/configuration"
 	"github.com/meloalright/guora/database"
 	"github.com/meloalright/guora/model"
@@ -11,7 +10,7 @@ import (
 
 var ctx = context.Background()
 
-func main() {
+func initAll() {
 
 	database.RDB.FlushDB(ctx)
 	fmt.Println("redis flushdb.")

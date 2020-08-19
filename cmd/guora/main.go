@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"github.com/gin-gonic/gin"
 	"github.com/meloalright/guora/configuration"
 	"github.com/meloalright/guora/controller/rest"
@@ -10,6 +11,12 @@ import (
 )
 
 func SetupRouter() (r *gin.Engine) {
+	var shouldInit = flag.Bool("init", false, "initialize all")
+	flag.Parse()
+
+	if *shouldInit {
+		initAll()
+	}
 
 	r = gin.Default()
 

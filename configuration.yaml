@@ -10,4 +10,4 @@ admin:
   mail: admin@localhost
   password: mypassword
 secretkey: JustWriteSomethingWhatYouLike
-address: :8080
+address: :8081
