@@ -5,12 +5,12 @@ package authorization
 import (
 	"errors"
 	"github.com/dgrijalva/jwt-go"
-	"github.com/meloalright/guora/configuration"
+	"github.com/meloalright/guora/conf"
 )
 
 func Parse(tokenString string) (ID int, ProfileID int, err error) {
 
-	SecretString := configuration.C.Secretkey
+	SecretString := conf.Config().Secretkey
 	
 	Secret := []byte(SecretString)
 
