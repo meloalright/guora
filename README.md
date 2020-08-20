@@ -27,16 +27,14 @@ $ go mod download
 
 `3.Edit Configuration`
 
-Open the `configuration.yaml` and edit your redis config.
+Open the `conf/configuration.yaml` and edit your redis config.
 
-打开 `configuration.yaml` 编辑你的 redis 环境配置。
+打开 `conf/configuration.yaml` 编辑你的 redis 环境配置。
 
 `4.Init and Run`
 
 ```shell
-$ (sudo) go run github.com/meloalright/guora/cmd/guora -init=true (if you want to initialize all then run)
-or
-$ (sudo) go run github.com/meloalright/guora/cmd/guora
+$ (sudo) go run ./cmd/guora -init
 ```
 
 `5.Visit localhost:8080 and Log in as admin`
@@ -49,16 +47,16 @@ $ (sudo) go run github.com/meloalright/guora/cmd/guora
 ## Run Test
 
 ```shell
-$ (sudo) go run init/init.go
-
-$ (sudo) go test
+$ (sudo) go test ./cmd/guora
 ```
 
 ## Source Code
 
-Repository: [Guora](https://github.com/meloalright/guora)
+Repository: [guora](https://github.com/meloalright/guora)
 
-Author: [Meloalright](https://github.com/meloalright)
+Author: [meloalright](https://github.com/meloalright)
+
+Contributors: [contributors](https://github.com/meloalright/guora/graphs/contributors)
 
 ## License
 

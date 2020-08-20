@@ -9,15 +9,15 @@ import (
 
 type Configuration struct {
 	Sql struct {
-		Sqlite3     bool `json:"sqlite"`
-		Addr     string `json:"addr"`
+		Sqlite3 bool   `json:"sqlite"`
+		Addr    string `json:"addr"`
 	} `json:"sql"`
 	Redis struct {
 		Addr     string `json:"addr"`
-		Password     string `json:"password"`
-		Db     int `json:"db"`
+		Password string `json:"password"`
+		Db       int    `json:"db"`
 	} `json:"redis"`
-	Admin     struct {
+	Admin struct {
 		Name     string `json:"name"`
 		Mail     string `json:"mail"`
 		Password string `json:"password"`
@@ -37,6 +37,8 @@ func Config() *Configuration {
 
 	viper.SetConfigName("configuration")
 	viper.AddConfigPath("./conf")
+	viper.AddConfigPath("../../conf")
+	viper.AddConfigPath("/etc/guora")
 	viper.SetConfigType("yaml")
 
 	if err = viper.ReadInConfig(); err != nil {

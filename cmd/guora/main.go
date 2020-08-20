@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+
 	"github.com/gin-gonic/gin"
 	"github.com/meloalright/guora/conf"
 	"github.com/meloalright/guora/controller/rest"
@@ -10,8 +11,7 @@ import (
 	"github.com/meloalright/guora/view"
 )
 
-func SetupRouter() (r *gin.Engine) {
-	r = gin.Default()
+func SetupApiRouter(r *gin.Engine) {
 
 	r.Use(middleware.Logger())
 
@@ -80,6 +80,9 @@ func SetupRouter() (r *gin.Engine) {
 			GroupRest.DELETE("/reply/:id", rest.DeleteReply)
 		}
 	}
+}
+
+func SetupViewRouter(r *gin.Engine) {
 
 	// Default Group: view
 	{
@@ -96,7 +99,6 @@ func SetupRouter() (r *gin.Engine) {
 		r.GET("/error", view.ViewError)
 	}
 
-	return
 }
 
 func main() {
@@ -107,7 +109,9 @@ func main() {
 		initAll(conf.Config())
 	}
 
-	r := SetupRouter()
+	r := gin.Default()
+	SetupApiRouter(r)
+	SetupViewRouter(r)
 
 	r.Run(conf.Config().Address)
 }

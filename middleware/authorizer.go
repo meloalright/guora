@@ -26,7 +26,6 @@ func Authorizer() gin.HandlerFunc {
 		// parse a ss(signed string)
 		ID, ProfileID, err := authorization.Parse(ss)
 		if err != nil {
-			log.Print("Authorizer error: ", err)
 			c.Redirect(http.StatusTemporaryRedirect, "/login")
 			c.Abort()
 			return
