@@ -11,7 +11,15 @@
 
 ## Quick Start
 
-`1.Clone Source Code`
+### Docker
+
+```sh
+$ docker run -d --name guora -p 8080:8080 meloalright/guora:beta
+```
+
+### Source
+
+#### 1.Clone Source Code
 
 ```shell
 $ git clone https://github.com/meloalright/guora
@@ -19,25 +27,25 @@ $ git clone https://github.com/meloalright/guora
 $ cd guora
 ```
 
-`2.Download Requirements`
+#### 2.Download Requirements
 
 ```shell
 $ go mod download
 ```
 
-`3.Edit Configuration`
+#### 3.Edit `conf/configuration.yaml`
 
-Open the `conf/configuration.yaml` and edit your redis config.
+`Open it and edit your redis config. 打开配置文件并编辑你的 redis 环境配置。`
 
-打开 `conf/configuration.yaml` 编辑你的 redis 环境配置。
-
-`4.Init and Run`
+#### 4.Init and Run
 
 ```shell
 $ (sudo) go run ./cmd/guora -init
 ```
 
-`5.Visit localhost:8080 and Log in as admin`
+## Visit website
+
+visit [localhost:8080](localhost:8080) and log in as admin
 
 |                     |                 |
 | ------------------- | --------------- |
