@@ -8,8 +8,8 @@ import (
 	"github.com/gavv/httpexpect/v2"
 	"github.com/gin-gonic/gin"
 	"github.com/meloalright/guora/conf"
-	"github.com/meloalright/guora/model"
-	"github.com/meloalright/guora/service/authorization"
+	"github.com/meloalright/guora/internal/model"
+	"github.com/meloalright/guora/internal/service/authorization"
 )
 
 var server *httptest.Server

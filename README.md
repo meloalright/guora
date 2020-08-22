@@ -40,7 +40,13 @@ $ go mod download
 #### 4.Init and Run
 
 ```shell
+<<<<<<< HEAD
+$ (sudo) go run github.com/meloalright/guora/cmd/guora -init=true (if you want to initialize all then run)
+or
+$ (sudo) go run github.com/meloalright/guora/cmd/guora
+=======
 $ (sudo) go run ./cmd/guora -init
+>>>>>>> upstream/master
 ```
 
 ## Visit website
