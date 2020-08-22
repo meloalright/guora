@@ -6,21 +6,31 @@ import (
 	"testing"
 
 	"github.com/gavv/httpexpect/v2"
+	"github.com/gin-gonic/gin"
+	"github.com/meloalright/guora/conf"
+	"github.com/meloalright/guora/model"
+	"github.com/meloalright/guora/service/authorization"
 )
 
 var server *httptest.Server
 var ss string
 
 func init() {
+	var u model.User
+
+	initAll(conf.Config())
 
 	// create http.Handler
-	handler := SetupRouter()
+	r := gin.Default()
+	SetupApiRouter(r)
 
 	// run server using httptest
-	server = httptest.NewServer(handler)
+	server = httptest.NewServer(r)
 	// defer server.Close()
 
-	ss = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicHJvZmlsZUlEIjoxLCJleHAiOjE1OTczMzU5NzQsImlzcyI6ImxvY2FsaG9zdCJ9.u1l-ga3MdYoiIPVb5XQsLIaxciced7YVTH5b26SPsAU"
+	u.ID = 1
+	admin, _ := u.Get()
+	ss, _ = authorization.Gen(admin)
 }
 
 // Web Security
@@ -291,15 +301,3 @@ func TestReply(t *testing.T) {
 		Status(http.StatusOK).JSON().Object().ContainsKey("status").ValueEqual("status", 200)
 }
 
-// Test VIew
-func TestView(t *testing.T) {
-
-	// create httpexpect instance
-	e := httpexpect.New(t, server.URL)
-
-	e.GET("/").
-		WithCookie("ss", ss).
-		Expect().
-		Status(http.StatusOK)
-
-}

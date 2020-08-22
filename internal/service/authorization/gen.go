@@ -5,7 +5,11 @@ import (
 	"time"
 
 	"github.com/dgrijalva/jwt-go"
+<<<<<<< HEAD:internal/service/authorization/gen.go
 	"github.com/meloalright/guora/internal/model"
+=======
+	"github.com/meloalright/guora/model"
+>>>>>>> upstream/master:service/authorization/gen.go
 	"net/url"
 	"strings"
 )

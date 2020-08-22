@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 	"github.com/meloalright/guora/conf"
-	"github.com/meloalright/guora/internal/database"
-	"github.com/meloalright/guora/internal/model"
+	"github.com/meloalright/guora/database"
+	"github.com/meloalright/guora/model"
 )
 
 var ctx = context.Background()

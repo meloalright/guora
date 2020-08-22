@@ -1,5 +1,15 @@
 .DS_Store
-*.db
+.idea
+.vscode
+.serverless
 /vendor
 main
+guora
 log.txt
+*.db
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.out

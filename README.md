@@ -11,7 +11,15 @@
 
 ## Quick Start
 
-`1.Clone Source Code`
+### Docker
+
+```sh
+$ docker run -d --name guora -p 8080:8080 meloalright/guora:beta
+```
+
+### Source
+
+#### 1.Clone Source Code
 
 ```shell
 $ git clone https://github.com/meloalright/guora
@@ -19,27 +27,31 @@ $ git clone https://github.com/meloalright/guora
 $ cd guora
 ```
 
-`2.Download Requirements`
+#### 2.Download Requirements
 
 ```shell
 $ go mod download
 ```
 
-`3.Edit Configuration`
+#### 3.Edit `conf/configuration.yaml`
 
-Open the `configuration.yaml` and edit your redis config.
+`Open it and edit your redis config. 打开配置文件并编辑你的 redis 环境配置。`
 
-打开 `configuration.yaml` 编辑你的 redis 环境配置。
-
-`4.Init and Run`
+#### 4.Init and Run
 
 ```shell
+<<<<<<< HEAD
 $ (sudo) go run github.com/meloalright/guora/cmd/guora -init=true (if you want to initialize all then run)
 or
 $ (sudo) go run github.com/meloalright/guora/cmd/guora
+=======
+$ (sudo) go run ./cmd/guora -init
+>>>>>>> upstream/master
 ```
 
-`5.Visit localhost:8080 and Log in as admin`
+## Visit website
+
+visit [localhost:8080](localhost:8080) and log in as admin
 
 |                     |                 |
 | ------------------- | --------------- |
@@ -49,16 +61,16 @@ $ (sudo) go run github.com/meloalright/guora/cmd/guora
 ## Run Test
 
 ```shell
-$ (sudo) go run init/init.go
-
-$ (sudo) go test
+$ (sudo) go test ./cmd/guora
 ```
 
 ## Source Code
 
-Repository: [Guora](https://github.com/meloalright/guora)
+Repository: [guora](https://github.com/meloalright/guora)
 
-Author: [Meloalright](https://github.com/meloalright)
+Author: [meloalright](https://github.com/meloalright)
+
+Contributors: [contributors](https://github.com/meloalright/guora/graphs/contributors)
 
 ## License
 
