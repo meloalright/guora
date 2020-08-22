@@ -12,16 +12,16 @@ type GORMBase struct {
 	UpdatedAt int64 `json:"updateAt"`
 }
 
-func (m *GORMBase) BeforeUpdate(scope *gorm.Scope) error {
-	scope.SetColumn("CreatedAt", time.Now().Unix())
-	return nil
-}
-
 func (m *GORMBase) BeforeCreate(scope *gorm.Scope) error {
 	if m.UpdatedAt == 0 {
 		scope.SetColumn("UpdatedAt", time.Now().Unix())
 	}
 
 	scope.SetColumn("CreatedAt", time.Now().Unix())
+	return nil
+}
+
+func (m *GORMBase) BeforeUpdate(scope *gorm.Scope) error {
+	scope.SetColumn("UpdatedAt", time.Now().Unix())
 	return nil
 }
