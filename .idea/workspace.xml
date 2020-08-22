@@ -22,12 +22,43 @@
     <list default="true" id="feb088de-4bbb-4009-8ad9-1abfd1a7592b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/cmd/guora/init.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/guora/init.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/guora/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/guora/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configuration.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/conf/configuration.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configuration/base.go" beforeDir="false" afterPath="$PROJECT_DIR$/conf/conf.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/redisdb.go" beforeDir="false" afterPath="$PROJECT_DIR$/database/redisdb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/sqlite3db.go" beforeDir="false" afterPath="$PROJECT_DIR$/database/sqlite3db.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/authorization/gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/authorization/gen.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/authorization/parse.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/authorization/parse.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/constant/cookie.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/constant/cookie.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/constant/file.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/constant/file.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/rest/answer.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/controller/rest/answer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/rest/comment.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/controller/rest/comment.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/rest/profile.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/controller/rest/profile.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/rest/question.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/controller/rest/question.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/rest/reply.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/controller/rest/reply.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/rest/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/controller/rest/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/web/add_answer.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/controller/web/add_answer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/web/add_comment.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/controller/web/add_comment.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/web/add_question.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/controller/web/add_question.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/web/add_remove_supporter.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/controller/web/add_remove_supporter.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/web/add_reply.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/controller/web/add_reply.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/web/web_file.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/controller/web/web_file.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/web/web_security.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/controller/web/web_security.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/redisdb.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/database/redisdb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/sqlite3db.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/database/sqlite3db.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/h/h.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/h/h.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/administrator.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/middleware/administrator.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/authorizer.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/middleware/authorizer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/logger.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/middleware/logger.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/answer.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/model/answer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/base.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/model/base.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/comment.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/model/comment.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/profile.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/model/profile.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/question.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/model/question.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/reply.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/model/reply.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/supporter.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/model/supporter.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/model/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/authorization/base.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/service/authorization/base.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/authorization/gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/service/authorization/gen.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/authorization/parse.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/service/authorization/parse.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/rdbservice/rdb_support_service.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/service/rdbservice/rdb_support_service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/view_answer.go" beforeDir="false" afterPath="$PROJECT_DIR$/view/view_answer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/view_index.go" beforeDir="false" afterPath="$PROJECT_DIR$/view/view_index.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/view_profile.go" beforeDir="false" afterPath="$PROJECT_DIR$/view/view_profile.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/view_question.go" beforeDir="false" afterPath="$PROJECT_DIR$/view/view_question.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +66,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DarkyenusTimeTracker">
-    <option name="totalTimeSeconds" value="1711" />
+    <option name="totalTimeSeconds" value="2041" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -58,12 +89,16 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="internal_organization" />
-                    <option name="lastUsedInstant" value="1597847326" />
+                    <option name="branchName" value="organize" />
+                    <option name="lastUsedInstant" value="1598060181" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="init_separated" />
-                    <option name="lastUsedInstant" value="1597847099" />
+                    <option name="lastUsedInstant" value="1598060121" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="internal_organization" />
+                    <option name="lastUsedInstant" value="1598060063" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="master" />
@@ -97,9 +132,36 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/internal" />
       <recent name="$PROJECT_DIR$/conf" />
       <recent name="$PROJECT_DIR$/cmd/guora" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="go build github.com/meloalright/guora/cmd/guora" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="guora" />
+      <working_directory value="$PROJECT_DIR$" />
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" />
+        </ENTRIES>
+      </EXTENSION>
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/cmd/guora/main.go" />
+      <package value="github.com/meloalright/guora/cmd/guora" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build github.com/meloalright/guora/cmd/guora" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
@@ -115,11 +177,32 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="WindowStateProjectService">
+    <state x="2338" y="198" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1598060258982">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2338" y="198" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.34.1920.1046/1920.0.1920.1080/3840.0.1920.1080@1920.0.1920.1080" timestamp="1598060258982" />
+    <state width="1870" height="351" key="GridCell.Tab.0.bottom" timestamp="1598060239211">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1870" height="351" key="GridCell.Tab.0.bottom/0.34.1920.1046/1920.0.1920.1080/3840.0.1920.1080@1920.0.1920.1080" timestamp="1598060239211" />
+    <state width="1870" height="351" key="GridCell.Tab.0.center" timestamp="1598060239211">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1870" height="351" key="GridCell.Tab.0.center/0.34.1920.1046/1920.0.1920.1080/3840.0.1920.1080@1920.0.1920.1080" timestamp="1598060239211" />
+    <state width="1870" height="351" key="GridCell.Tab.0.left" timestamp="1598060239210">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1870" height="351" key="GridCell.Tab.0.left/0.34.1920.1046/1920.0.1920.1080/3840.0.1920.1080@1920.0.1920.1080" timestamp="1598060239210" />
+    <state width="1870" height="351" key="GridCell.Tab.0.right" timestamp="1598060239211">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1870" height="351" key="GridCell.Tab.0.right/0.34.1920.1046/1920.0.1920.1080/3840.0.1920.1080@1920.0.1920.1080" timestamp="1598060239211" />
     <state x="641" y="123" width="638" height="867" key="find.popup" timestamp="1597847834381">
       <screen x="0" y="34" width="1920" height="1046" />
     </state>

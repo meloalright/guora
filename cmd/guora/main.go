@@ -4,10 +4,10 @@ import (
 	"flag"
 	"github.com/gin-gonic/gin"
 	"github.com/meloalright/guora/conf"
-	"github.com/meloalright/guora/controller/rest"
-	"github.com/meloalright/guora/controller/web"
-	"github.com/meloalright/guora/middleware"
-	"github.com/meloalright/guora/view"
+	"github.com/meloalright/guora/internal/controller/rest"
+	"github.com/meloalright/guora/internal/controller/web"
+	"github.com/meloalright/guora/internal/middleware"
+	"github.com/meloalright/guora/internal/view"
 )
 
 func SetupRouter() (r *gin.Engine) {
@@ -84,8 +84,8 @@ func SetupRouter() (r *gin.Engine) {
 	// Default Group: view
 	{
 		r.Delims("\"/{{", "}}/\"")
-		r.LoadHTMLGlob("website/*.html")
-		r.Static("/static", "website/static")
+		r.LoadHTMLGlob("web/*.html")
+		r.Static("/static", "web/static")
 
 		r.GET("/", middleware.Authorizer(), view.ViewIndex)
 		r.GET("/profile", middleware.Authorizer(), view.ViewProfile)
