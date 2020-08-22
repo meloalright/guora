@@ -10,11 +10,6 @@ import (
 func Parse(tokenString string) (ID int, ProfileID int, err error) {
 
 	SecretString := conf.Config().Secretkey
-<<<<<<< HEAD:internal/service/authorization/parse.go
-	
-=======
-
->>>>>>> upstream/master:service/authorization/parse.go
 	Secret := []byte(SecretString)
 
 	token, err := jwt.ParseWithClaims(tokenString, &AuthorizationClaims{}, func(token *jwt.Token) (interface{}, error) {

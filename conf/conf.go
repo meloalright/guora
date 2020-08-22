@@ -37,11 +37,8 @@ func Config() *Configuration {
 
 	viper.SetConfigName("configuration")
 	viper.AddConfigPath("./conf")
-<<<<<<< HEAD:conf/conf.go
-=======
 	viper.AddConfigPath("../../conf")
 	viper.AddConfigPath("/etc/guora")
->>>>>>> upstream/master:configuration/base.go
 	viper.SetConfigType("yaml")
 
 	if err = viper.ReadInConfig(); err != nil {
