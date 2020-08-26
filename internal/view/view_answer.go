@@ -5,6 +5,7 @@ import (
 	"strconv"
 
 	"github.com/gin-gonic/gin"
+	"github.com/meloalright/guora/conf"
 	"github.com/meloalright/guora/internal/h"
 	"github.com/meloalright/guora/internal/model"
 	"github.com/meloalright/guora/internal/service/rdbservice"
@@ -79,6 +80,7 @@ func ViewAnswer(c *gin.Context) {
 
 	template := "answer.html"
 	data := map[string]interface{}{
+		"lang":    conf.Config().Lang,
 		"csrdata": csrdata,
 	}
 

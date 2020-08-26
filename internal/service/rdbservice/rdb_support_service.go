@@ -20,7 +20,7 @@ func RedisAddSupporter(AnswerID int, MemberID int) (err error) {
 		return
 	}
 	if isMember == true {
-		err = errors.New("Has upvoted")
+		err = errors.New("Has Upvoted")
 		return
 	}
 	err = database.RDB.SAdd(ctx, redisKey, AnswerID).Err()
@@ -36,7 +36,7 @@ func RedisRemoveSupporter(AnswerID int, MemberID int) (err error) {
 		return
 	}
 	if isMember == false {
-		err = errors.New("Hasn't upvoted")
+		err = errors.New("Hasn't Upvoted")
 		return
 	}
 	err = database.RDB.SRem(ctx, redisKey, AnswerID).Err()

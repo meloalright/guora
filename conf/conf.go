@@ -23,6 +23,7 @@ type Configuration struct {
 		Password string `json:"password"`
 	} `json:"admin"`
 	Address   string `json:"address"`
+	Lang      string `json:"lang"`
 	Secretkey string `json:"secretkey"`
 }
 

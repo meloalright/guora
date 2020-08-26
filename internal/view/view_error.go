@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	// "fmt"
+	"github.com/meloalright/guora/conf"
 )
 
 func ViewError(c *gin.Context) {
@@ -13,6 +13,7 @@ func ViewError(c *gin.Context) {
 
 	template := "error.html"
 	data := map[string]interface{}{
+		"lang":    conf.Config().Lang,
 		"csrdata": csrdata,
 	}
 

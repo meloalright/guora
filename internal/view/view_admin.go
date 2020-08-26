@@ -2,16 +2,18 @@ package view
 
 import (
 	"net/http"
+
 	"github.com/gin-gonic/gin"
-	// "fmt"
+	"github.com/meloalright/guora/conf"
 )
 
-func ViewAdmin (c *gin.Context) {
+func ViewAdmin(c *gin.Context) {
 
 	var csrdata map[string]interface{}
 
 	template := "admin.html"
 	data := map[string]interface{}{
+		"lang":    conf.Config().Lang,
 		"csrdata": csrdata,
 	}
 

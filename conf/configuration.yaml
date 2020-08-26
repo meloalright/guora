@@ -10,4 +10,5 @@ admin:
   mail: admin@localhost
   password: mypassword
 secretkey: JustWriteSomethingWhatYouLike
+lang: en
 address: :8080

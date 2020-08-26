@@ -82,7 +82,7 @@ func (u *User) GetCounts() (counts int, err error) {
 
 func (u *User) BeforeDelete(tx *gorm.DB) (err error) {
 	if u.ID == 1 {
-		err = errors.New("Can not remove admin")
+		err = errors.New("Can Not Remove Admin")
 	}
 	return
 }
