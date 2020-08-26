@@ -53,8 +53,19 @@ $ (sudo) go test ./cmd/guora
 ## Docker Deploy
 
 ```sh
-$ docker run -d --name guora -p 8080:8080 meloalright/guora:beta1
+$ docker run -d --name guora -p 8080:8080 meloalright/guora:beta2
 ```
+
+## Configuration Description
+
+| Param     | Required/Optional | Description                       | 备注                           |
+| --------- | ----------------- | --------------------------------- | ------------------------------ |
+| sql       | Required          | Database configure                | 数据库配置                     |
+| redis     | Required          | Redis configure                   | Redis 配置                     |
+| admin     | Required          | Administrator info                | 管理员信息                     |
+| secretkey | Required          | Secret string for token signature | Token 密钥                     |
+| lang      | Required          | languages, such as en, zh         | 语言: en 为英文; zh 为简体中文 |
+| address   | Required          | Listening port                    | 监听端口                       |
 
 ## Source Code
 
