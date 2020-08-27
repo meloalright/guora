@@ -37,9 +37,7 @@ func Config() *Configuration {
 	var err error
 
 	viper.SetConfigName("configuration")
-	viper.AddConfigPath("./conf")
-	viper.AddConfigPath("../../conf")
-	viper.AddConfigPath("/etc/guora")
+	viper.AddConfigPath("/etc/guora/")
 	viper.SetConfigType("yaml")
 
 	if err = viper.ReadInConfig(); err != nil {

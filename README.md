@@ -25,9 +25,41 @@ $ cd guora
 $ go mod download
 ```
 
-### 3.Edit [conf/configuration.yaml](conf/configuration.yaml)
+### 3.Create Configuration
 
-`Open it and edit your redis config. 打开配置文件并编辑你的 redis 环境配置。`
+```shell
+$ touch /etc/guora/configuration.yaml
+```
+
+#### Configuration Example
+
+```yaml
+sql:
+  sqlite3: true
+  addr: ./guora.db
+redis:
+  addr: localhost:6379
+  password:
+  db: 0
+admin:
+  name: Guora Robot (管理员)
+  mail: admin@localhost
+  password: mypassword
+secretkey: JustWriteSomethingWhatYouLike
+lang: en
+address: :8080
+```
+
+#### Configuration Description
+
+| Param     | Description                       | 备注                           |
+| --------- | --------------------------------- | ------------------------------ |
+| sql       | Database configure                | 数据库配置                     |
+| redis     | Redis configure                   | Redis 配置                     |
+| admin     | Administrator info                | 管理员信息                     |
+| secretkey | Secret string for token signature | Token 密钥                     |
+| lang      | languages, such as en, zh         | 语言: en 为英文; zh 为简体中文 |
+| address   | Listening port                    | 监听端口                       |
 
 ### 4.Init and Run
 
@@ -56,24 +88,17 @@ $ (sudo) go test ./cmd/guora
 $ docker run -d --name guora -p 8080:8080 meloalright/guora:beta2
 ```
 
-## Configuration Description
-
-| Param     | Required/Optional | Description                       | 备注                           |
-| --------- | ----------------- | --------------------------------- | ------------------------------ |
-| sql       | Required          | Database configure                | 数据库配置                     |
-| redis     | Required          | Redis configure                   | Redis 配置                     |
-| admin     | Required          | Administrator info                | 管理员信息                     |
-| secretkey | Required          | Secret string for token signature | Token 密钥                     |
-| lang      | Required          | languages, such as en, zh         | 语言: en 为英文; zh 为简体中文 |
-| address   | Required          | Listening port                    | 监听端口                       |
-
-## Source Code
+## Source
 
 Repository: [guora](https://github.com/meloalright/guora)
 
 Author: [meloalright](https://github.com/meloalright)
 
 Contributors: [contributors](https://github.com/meloalright/guora/graphs/contributors)
+
+## ChangeLog
+
+Documented in [Releases](https://github.com/meloalright/guora/releases)
 
 ## License
 
