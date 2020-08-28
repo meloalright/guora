@@ -9,7 +9,13 @@
 
 基于 Golang 类似知乎的私有部署问答应用 包含问答、评论、点赞、管理后台等功能
 
-## Quick Start
+## Quick Start / Docker Deploy
+
+```sh
+$ docker run -d --name guora -p 8080:8080 meloalright/guora:beta3
+```
+
+## Development / Non-Dockerized Deploy
 
 ### 1.Clone Source Code
 
@@ -80,12 +86,6 @@ visit [localhost:8080](http://localhost:8080) and log in as admin
 
 ```shell
 $ (sudo) go test ./cmd/guora
-```
-
-## Docker Deploy
-
-```sh
-$ docker run -d --name guora -p 8080:8080 meloalright/guora:beta2
 ```
 
 ## Source
