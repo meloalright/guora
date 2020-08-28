@@ -12,7 +12,7 @@
 ## Quick Start (Docker Deploy)
 
 ```sh
-$ docker run -d --name guora -p 8080:8080 meloalright/guora:beta3
+$ docker-compose up --build
 ```
 
 ## Development (Non-Dockerized Deploy)
