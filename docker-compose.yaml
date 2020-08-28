@@ -1,0 +1,14 @@
+version: '3'
+services:
+  redis-db:
+    image: redis:alpine
+    volumes:
+      - ./data:/data
+    restart: always
+  guora:
+    build: .
+    depends_on:
+      - redis-db
+    restart: always
+    ports:
+      - "8080:8080"
