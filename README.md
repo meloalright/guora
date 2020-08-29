@@ -38,7 +38,7 @@ $ touch /etc/guora/configuration.yaml
 ```
 
 ```yaml
-# configuration example
+# configuration for dev
 sql:
   sqlite3: true
   addr: ./guora.db
@@ -47,7 +47,7 @@ redis:
   password:
   db: 0
 admin:
-  name: Guora Robot (管理员)
+  name: Development (开发账号)
   mail: admin@localhost
   password: mypassword
 secretkey: JustWriteSomethingWhatYouLike
@@ -62,7 +62,7 @@ address: :8080
 | admin     | Administrator info                | 管理员信息                     |
 | secretkey | Secret string for token signature | Token 密钥                     |
 | lang      | languages, such as en, zh         | 语言: en 为英文; zh 为简体中文 |
-| address   | Listening port                    | 监听端口                       |
+| address   | Listen address                    | 服务监听地址                   |
 
 ### 4.Init and Run
 
