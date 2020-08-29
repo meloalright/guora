@@ -1,5 +1,13 @@
-FROM ubuntu:latest
+FROM golang:1.13-alpine AS builder
 WORKDIR /go/src/github.com/meloalright/guora
+ENV CC=gcc
 COPY . .
-RUN apt-get update && apt-get -y install redis-server --no-install-recommends && rm -rf /var/lib/apt/lists/*
-CMD sh -c '/etc/init.d/redis-server start && mkdir -p /etc/guora && cp ./configuration.example.yaml /etc/guora/configuration.yaml && ./guora -init'
+RUN apk add --no-cache gcc musl-dev \
+    && go build ./cmd/guora && mv guora /go/bin
+###############
+FROM alpine:3.6
+COPY --from=builder /go/bin/guora /usr/local/bin
+COPY --from=builder /go/src/github.com/meloalright/guora /guora
+COPY configuration.example.yaml /etc/guora/configuration.yaml
+WORKDIR /guora
+CMD "guora" "-init"

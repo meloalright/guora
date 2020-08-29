@@ -2,7 +2,7 @@ sql:
   sqlite3: true
   addr: ./guora.db
 redis:
-  addr: localhost:6379
+  addr: redis-db:6379
   password:
   db: 0
 admin:
