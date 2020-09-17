@@ -39,30 +39,35 @@ $ touch /etc/guora/configuration.yaml
 
 ```yaml
 # configuration for dev
-sql:
-  sqlite3: true
+db:
+  driver: sqlite3
   addr: ./guora.db
+  # driver: mysql
+  # addr: user:password@/dbname?charset=utf8&parseTime=True&loc=Local
+  # driver: postgres
+  # addr: host=myhost user=gorm dbname=gorm sslmode=disable password=mypassword
 redis:
   addr: localhost:6379
   password:
   db: 0
 admin:
   name: Development (开发账号)
-  mail: admin@localhost
+  mail: mymail
   password: mypassword
 secretkey: JustWriteSomethingWhatYouLike
 lang: en
+#lang: zh
 address: :8080
 ```
 
-| Param     | Description                       | 备注                           |
-| --------- | --------------------------------- | ------------------------------ |
-| sql       | Database configure                | 数据库配置                     |
-| redis     | Redis configure                   | Redis 配置                     |
-| admin     | Administrator info                | 管理员信息                     |
-| secretkey | Secret string for token signature | Token 密钥                     |
-| lang      | languages, such as en, zh         | 语言: en 为英文; zh 为简体中文 |
-| address   | Listen address                    | 服务监听地址                   |
+| Param     | Description                                           | 备注                                          |
+| --------- | ----------------------------------------------------- | --------------------------------------------- |
+| db        | Database configure, supports sqlite3, mysql, postgres | 数据库配置: 驱动支持 sqlite3, mysql, postgres |
+| redis     | Redis configure                                       | Redis 配置                                    |
+| admin     | Administrator info                                    | 管理员信息                                    |
+| secretkey | Secret string for token signature                     | Token 密钥                                    |
+| lang      | Languages, such as en, zh                             | 语言: en 为英文; zh 为简体中文                |
+| address   | Listen address                                        | 服务监听地址                                  |
 
 ### 4.Init and Run
 
@@ -74,10 +79,10 @@ $ (sudo) go run ./cmd/guora -init
 
 visit [localhost:8080](http://localhost:8080) and log in as admin
 
-|                     |                 |
-| ------------------- | --------------- |
-| mail (默认邮箱)     | admin@localhost |
-| password (默认密码) | mypassword      |
+|                     |            |
+| ------------------- | ---------- |
+| mail (默认邮箱)     | mymail     |
+| password (默认密码) | mypassword |
 
 ## Run Test
 

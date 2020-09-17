@@ -1,5 +1,5 @@
-sql:
-  sqlite3: true
+db:
+  driver: sqlite3
   addr: ./guora.db
 redis:
   addr: redis-db:6379
@@ -7,7 +7,7 @@ redis:
   db: 0
 admin:
   name: Guora Robot (管理员)
-  mail: admin@localhost
+  mail: mymail
   password: mypassword
 secretkey: JustWriteSomethingWhatYouLike
 lang: en

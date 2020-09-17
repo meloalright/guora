@@ -14,7 +14,7 @@ type Profile struct {
 
 func (p *Profile) Get() (profile Profile, err error) {
 
-	if err = database.SQLITE3DB.Where(&p).First(&profile).Error; err != nil {
+	if err = database.DB.Where(&p).First(&profile).Error; err != nil {
 		log.Print(err)
 	}
 
@@ -23,7 +23,7 @@ func (p *Profile) Get() (profile Profile, err error) {
 
 func (p *Profile) Create() (ra int64, err error) {
 
-	if err = database.SQLITE3DB.Create(&p).Error; err != nil {
+	if err = database.DB.Create(&p).Error; err != nil {
 		ra = -1
 		log.Print(err)
 	} else {
@@ -34,7 +34,7 @@ func (p *Profile) Create() (ra int64, err error) {
 
 func (p *Profile) Update() (ra int64, err error) {
 
-	if err = database.SQLITE3DB.Model(&p).Updates(p).Error; err != nil {
+	if err = database.DB.Model(&p).Updates(p).Error; err != nil {
 		ra = -1
 		log.Print(err)
 	} else {
@@ -45,7 +45,7 @@ func (p *Profile) Update() (ra int64, err error) {
 
 func (p *Profile) Delete() (ra int64, err error) {
 
-	if err = database.SQLITE3DB.Delete(&p).Error; err != nil {
+	if err = database.DB.Delete(&p).Error; err != nil {
 		ra = -1
 		log.Print(err)
 	} else {
@@ -56,7 +56,7 @@ func (p *Profile) Delete() (ra int64, err error) {
 
 func (p *Profile) GetList(limit int, offset int) (profiles []Profile, err error) {
 
-	if err = database.SQLITE3DB.Offset(offset).Limit(limit).Find(&profiles).Error; err != nil {
+	if err = database.DB.Offset(offset).Limit(limit).Find(&profiles).Error; err != nil {
 		log.Print(err)
 	}
 
@@ -65,7 +65,7 @@ func (p *Profile) GetList(limit int, offset int) (profiles []Profile, err error)
 
 func (p *Profile) GetCounts() (counts int, err error) {
 
-	if err = database.SQLITE3DB.Model(&Profile{}).Count(&counts).Error; err != nil {
+	if err = database.DB.Model(&Profile{}).Count(&counts).Error; err != nil {
 		log.Print(err)
 	}
 

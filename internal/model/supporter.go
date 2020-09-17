@@ -17,7 +17,7 @@ type Supporter struct {
 
 func (su *Supporter) Create() (ra int64, err error) {
 
-	if err = database.SQLITE3DB.Create(&su).Error; err != nil {
+	if err = database.DB.Create(&su).Error; err != nil {
 		ra = -1
 		log.Print(err)
 	} else {
@@ -29,7 +29,7 @@ func (su *Supporter) Create() (ra int64, err error) {
 
 func (su *Supporter) Delete() (ra int64, err error) {
 
-	if err = database.SQLITE3DB.Delete(&su).Error; err != nil {
+	if err = database.DB.Delete(&su).Error; err != nil {
 		ra = -1
 		log.Print(err)
 	} else {

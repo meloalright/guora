@@ -21,7 +21,7 @@ type Comment struct {
 
 func (co *Comment) Get() (comment Comment, err error) {
 
-	if err = database.SQLITE3DB.Where(&co).Preload("CommentProfile").First(&comment).Error; err != nil {
+	if err = database.DB.Where(&co).Preload("CommentProfile").First(&comment).Error; err != nil {
 		log.Print(err)
 	}
 
@@ -30,7 +30,7 @@ func (co *Comment) Get() (comment Comment, err error) {
 
 func (co *Comment) Create() (ra int64, err error) {
 
-	if err = database.SQLITE3DB.Create(&co).Error; err != nil {
+	if err = database.DB.Create(&co).Error; err != nil {
 		ra = -1
 		log.Print(err)
 	} else {
@@ -42,7 +42,7 @@ func (co *Comment) Create() (ra int64, err error) {
 
 func (co *Comment) Update() (ra int64, err error) {
 
-	if err = database.SQLITE3DB.Model(&co).Updates(co).Error; err != nil {
+	if err = database.DB.Model(&co).Updates(co).Error; err != nil {
 		ra = -1
 		log.Print(err)
 	} else {
@@ -53,7 +53,7 @@ func (co *Comment) Update() (ra int64, err error) {
 
 func (co *Comment) Delete() (ra int64, err error) {
 
-	if err = database.SQLITE3DB.Where(&co).First(&co).Delete(&co).Error; err != nil {
+	if err = database.DB.Where(&co).First(&co).Delete(&co).Error; err != nil {
 		ra = -1
 		log.Print(err)
 	} else {
@@ -64,7 +64,7 @@ func (co *Comment) Delete() (ra int64, err error) {
 
 func (co *Comment) GetList(limit int, offset int) (comments []Comment, err error) {
 
-	if err = database.SQLITE3DB.Offset(offset).Limit(limit).Preload("CommentProfile").Find(&comments, co).Error; err != nil {
+	if err = database.DB.Offset(offset).Limit(limit).Preload("CommentProfile").Find(&comments, co).Error; err != nil {
 		log.Print(err)
 	}
 
@@ -73,7 +73,7 @@ func (co *Comment) GetList(limit int, offset int) (comments []Comment, err error
 
 func (co *Comment) GetCounts() (counts int, err error) {
 
-	if err = database.SQLITE3DB.Model(&Comment{}).Where(&co).Count(&counts).Error; err != nil {
+	if err = database.DB.Model(&Comment{}).Where(&co).Count(&counts).Error; err != nil {
 		log.Print(err)
 	}
 

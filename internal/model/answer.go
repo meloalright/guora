@@ -9,7 +9,7 @@ import (
 
 type Answer struct {
 	GORMBase
-	Content          string      `json:"content"`
+	Content          string      `json:"content" gorm:"type:varchar(4000)"`
 	Type             int         `json:"type"`
 	Question         Question    `json:"question" gorm:"ForeignKey:QuestionID"`
 	QuestionID       int         `json:"questionID"`
@@ -24,7 +24,7 @@ type Answer struct {
 
 func (a *Answer) Get() (answer Answer, err error) {
 
-	if err = database.SQLITE3DB.Where(&a).Preload("Question").Preload("AnswerProfile").First(&answer).Error; err != nil {
+	if err = database.DB.Where(&a).Preload("Question").Preload("AnswerProfile").First(&answer).Error; err != nil {
 		log.Print(err)
 	}
 
@@ -33,7 +33,7 @@ func (a *Answer) Get() (answer Answer, err error) {
 
 func (a *Answer) Create() (ra int64, err error) {
 
-	if err = database.SQLITE3DB.Create(&a).Error; err != nil {
+	if err = database.DB.Create(&a).Error; err != nil {
 		ra = -1
 		log.Print(err)
 	} else {
@@ -45,7 +45,7 @@ func (a *Answer) Create() (ra int64, err error) {
 
 func (a *Answer) Update() (ra int64, err error) {
 
-	if err = database.SQLITE3DB.Model(&a).Updates(a).Error; err != nil {
+	if err = database.DB.Model(&a).Updates(a).Error; err != nil {
 		ra = -1
 		log.Print(err)
 	} else {
@@ -56,7 +56,7 @@ func (a *Answer) Update() (ra int64, err error) {
 
 func (a *Answer) Delete() (ra int64, err error) {
 
-	if err = database.SQLITE3DB.Where(&a).First(&a).Delete(&a).Error; err != nil {
+	if err = database.DB.Where(&a).First(&a).Delete(&a).Error; err != nil {
 		ra = -1
 		log.Print(err)
 	} else {
@@ -67,7 +67,7 @@ func (a *Answer) Delete() (ra int64, err error) {
 
 func (a *Answer) GetList(limit int, offset int) (answers []Answer, err error) {
 
-	if err = database.SQLITE3DB.Offset(offset).Limit(limit).Preload("Question").Preload("AnswerProfile").Find(&answers, a).Error; err != nil {
+	if err = database.DB.Offset(offset).Limit(limit).Preload("Question").Preload("AnswerProfile").Find(&answers, a).Error; err != nil {
 		log.Print(err)
 	}
 
@@ -76,7 +76,7 @@ func (a *Answer) GetList(limit int, offset int) (answers []Answer, err error) {
 
 func (a *Answer) GetOrderList(limit int, offset int, order string) (answers []Answer, err error) {
 
-	if err = database.SQLITE3DB.Offset(offset).Limit(limit).Preload("Question").Preload("AnswerProfile").Order(order).Find(&answers, a).Error; err != nil {
+	if err = database.DB.Offset(offset).Limit(limit).Preload("Question").Preload("AnswerProfile").Order(order).Find(&answers, a).Error; err != nil {
 		log.Print(err)
 	}
 
@@ -85,7 +85,7 @@ func (a *Answer) GetOrderList(limit int, offset int, order string) (answers []An
 
 func (a *Answer) GetCounts() (counts int, err error) {
 
-	if err = database.SQLITE3DB.Model(&Answer{}).Where(&a).Count(&counts).Error; err != nil {
+	if err = database.DB.Model(&Answer{}).Where(&a).Count(&counts).Error; err != nil {
 		log.Print(err)
 	}
 	return
