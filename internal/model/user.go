@@ -21,7 +21,7 @@ type User struct {
 
 func (u *User) Get() (user User, err error) {
 
-	if err = database.SQLITE3DB.Where(&u).Preload("Profile").First(&user).Error; err != nil {
+	if err = database.DB.Where(&u).Preload("Profile").First(&user).Error; err != nil {
 		log.Print(err)
 	}
 
@@ -30,7 +30,7 @@ func (u *User) Get() (user User, err error) {
 
 func (u *User) Create() (ra int64, err error) {
 
-	if err = database.SQLITE3DB.Create(&u).Error; err != nil {
+	if err = database.DB.Create(&u).Error; err != nil {
 		ra = -1
 		log.Print(err)
 	} else {
@@ -42,7 +42,7 @@ func (u *User) Create() (ra int64, err error) {
 
 func (u *User) Update() (ra int64, err error) {
 
-	if err = database.SQLITE3DB.Model(&u).Updates(u).Error; err != nil {
+	if err = database.DB.Model(&u).Updates(u).Error; err != nil {
 		ra = -1
 		log.Print(err)
 	} else {
@@ -52,7 +52,7 @@ func (u *User) Update() (ra int64, err error) {
 }
 
 func (u *User) Delete() (ra int64, err error) {
-	if err = database.SQLITE3DB.Delete(&u).Error; err != nil {
+	if err = database.DB.Delete(&u).Error; err != nil {
 		ra = -1
 		log.Print(err)
 	} else {
@@ -64,7 +64,7 @@ func (u *User) Delete() (ra int64, err error) {
 
 func (u *User) GetList(limit int, offset int) (users []User, err error) {
 
-	if err = database.SQLITE3DB.Offset(offset).Limit(limit).Find(&users).Error; err != nil {
+	if err = database.DB.Offset(offset).Limit(limit).Find(&users).Error; err != nil {
 		log.Print(err)
 	}
 
@@ -73,7 +73,7 @@ func (u *User) GetList(limit int, offset int) (users []User, err error) {
 
 func (u *User) GetCounts() (counts int, err error) {
 
-	if err = database.SQLITE3DB.Model(&User{}).Count(&counts).Error; err != nil {
+	if err = database.DB.Model(&User{}).Count(&counts).Error; err != nil {
 		log.Print(err)
 	}
 

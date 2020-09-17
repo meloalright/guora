@@ -8,10 +8,10 @@ import (
 )
 
 type Configuration struct {
-	Sql struct {
-		Sqlite3 bool   `json:"sqlite"`
+	DB struct {
+		Driver  string `json:"driver"`
 		Addr    string `json:"addr"`
-	} `json:"sql"`
+	} `json:"db"`
 	Redis struct {
 		Addr     string `json:"addr"`
 		Password string `json:"password"`

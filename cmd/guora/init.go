@@ -15,53 +15,53 @@ func initAll(conf *conf.Configuration) {
 	database.RDB.FlushDB(ctx)
 	fmt.Println("redis flushdb.")
 
-	if (database.SQLITE3DB.HasTable(&model.User{})) {
+	if (database.DB.HasTable(&model.User{})) {
 		fmt.Println("db has the table user, so drop it.")
-		database.SQLITE3DB.DropTable(&model.User{})
+		database.DB.DropTable(&model.User{})
 	}
 
-	if (database.SQLITE3DB.HasTable(&model.Profile{})) {
+	if (database.DB.HasTable(&model.Profile{})) {
 		fmt.Println("db has the table profile, so drop it.")
-		database.SQLITE3DB.DropTable(&model.Profile{})
+		database.DB.DropTable(&model.Profile{})
 	}
 
-	if (database.SQLITE3DB.HasTable(&model.Question{})) {
+	if (database.DB.HasTable(&model.Question{})) {
 		fmt.Println("db has the table question, so drop it.")
-		database.SQLITE3DB.DropTable(&model.Question{})
+		database.DB.DropTable(&model.Question{})
 	}
 
-	if (database.SQLITE3DB.HasTable(&model.Answer{})) {
+	if (database.DB.HasTable(&model.Answer{})) {
 		fmt.Println("db has the table answer, so drop it.")
-		database.SQLITE3DB.DropTable(&model.Answer{})
+		database.DB.DropTable(&model.Answer{})
 	}
 
-	if (database.SQLITE3DB.HasTable(&model.Comment{})) {
+	if (database.DB.HasTable(&model.Comment{})) {
 		fmt.Println("db has the table comment, so drop it.")
-		database.SQLITE3DB.DropTable(&model.Comment{})
+		database.DB.DropTable(&model.Comment{})
 	}
 
-	if (database.SQLITE3DB.HasTable(&model.Reply{})) {
+	if (database.DB.HasTable(&model.Reply{})) {
 		fmt.Println("db has the table reply, so drop it.")
-		database.SQLITE3DB.DropTable(&model.Reply{})
+		database.DB.DropTable(&model.Reply{})
 	}
 
-	if (database.SQLITE3DB.HasTable(&model.Supporter{})) {
+	if (database.DB.HasTable(&model.Supporter{})) {
 		fmt.Println("db has the table supporter, so drop it.")
-		database.SQLITE3DB.DropTable(&model.Supporter{})
+		database.DB.DropTable(&model.Supporter{})
 	}
 
-	database.SQLITE3DB.AutoMigrate(&model.User{})
-	database.SQLITE3DB.AutoMigrate(&model.Profile{})
-	database.SQLITE3DB.AutoMigrate(&model.Question{})
-	database.SQLITE3DB.AutoMigrate(&model.Answer{})
-	database.SQLITE3DB.AutoMigrate(&model.Comment{})
-	database.SQLITE3DB.AutoMigrate(&model.Reply{})
-	database.SQLITE3DB.AutoMigrate(&model.Supporter{})
+	database.DB.AutoMigrate(&model.User{})
+	database.DB.AutoMigrate(&model.Profile{})
+	database.DB.AutoMigrate(&model.Question{})
+	database.DB.AutoMigrate(&model.Answer{})
+	database.DB.AutoMigrate(&model.Comment{})
+	database.DB.AutoMigrate(&model.Reply{})
+	database.DB.AutoMigrate(&model.Supporter{})
 
 	p0 := model.Profile{Name: conf.Admin.Name, Desc: "This is " + conf.Admin.Name}
 	p0.Create()
 
-	database.SQLITE3DB.Create(&model.User{Mail: conf.Admin.Mail, Password: conf.Admin.Password, Authorized: 1, Type: 100, ProfileID: p0.ID})
+	database.DB.Create(&model.User{Mail: conf.Admin.Mail, Password: conf.Admin.Password, Authorized: 1, Type: 100, ProfileID: p0.ID})
 
 	q0 := model.Question{Title: "How to use the Guora?", Desc: `{"blocks":[{"key":"9s4bh","text":"How should we use it?","type":"unstyled","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}}],"entityMap":{}}`, Type: 0, QuestionProfile: p0}
 	q1 := model.Question{Title: "这玩意咋用？", Desc: `{"blocks":[{"key":"bvelr","text":"这个 Guora 究竟如何使用？","type":"unstyled","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}}],"entityMap":{}}`, Type: 0, QuestionProfile: p0}

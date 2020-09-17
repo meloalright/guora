@@ -21,7 +21,7 @@ type Reply struct {
 
 func (r *Reply) Get() (reply Reply, err error) {
 
-	if err = database.SQLITE3DB.Where(&r).Preload("ReplyFromProfile").Preload("ReplyToProfile").First(&reply).Error; err != nil {
+	if err = database.DB.Where(&r).Preload("ReplyFromProfile").Preload("ReplyToProfile").First(&reply).Error; err != nil {
 		log.Print(err)
 	}
 
@@ -30,7 +30,7 @@ func (r *Reply) Get() (reply Reply, err error) {
 
 func (r *Reply) Create() (ra int64, err error) {
 
-	if err = database.SQLITE3DB.Create(&r).Error; err != nil {
+	if err = database.DB.Create(&r).Error; err != nil {
 		ra = -1
 		log.Print(err)
 	} else {
@@ -42,7 +42,7 @@ func (r *Reply) Create() (ra int64, err error) {
 
 func (r *Reply) Update() (ra int64, err error) {
 
-	if err = database.SQLITE3DB.Model(&r).Updates(r).Error; err != nil {
+	if err = database.DB.Model(&r).Updates(r).Error; err != nil {
 		ra = -1
 		log.Print(err)
 	} else {
@@ -53,7 +53,7 @@ func (r *Reply) Update() (ra int64, err error) {
 
 func (r *Reply) Delete() (ra int64, err error) {
 
-	if err = database.SQLITE3DB.Where(&r).First(&r).Delete(&r).Error; err != nil {
+	if err = database.DB.Where(&r).First(&r).Delete(&r).Error; err != nil {
 		ra = -1
 		log.Print(err)
 	} else {
@@ -64,7 +64,7 @@ func (r *Reply) Delete() (ra int64, err error) {
 
 func (r *Reply) GetList(limit int, offset int) (replies []Reply, err error) {
 
-	if err = database.SQLITE3DB.Offset(offset).Limit(limit).Preload("ReplyFromProfile").Preload("ReplyToProfile").Find(&replies, r).Error; err != nil {
+	if err = database.DB.Offset(offset).Limit(limit).Preload("ReplyFromProfile").Preload("ReplyToProfile").Find(&replies, r).Error; err != nil {
 		log.Print(err)
 	}
 
@@ -73,7 +73,7 @@ func (r *Reply) GetList(limit int, offset int) (replies []Reply, err error) {
 
 func (r *Reply) GetCounts() (counts int, err error) {
 
-	if err = database.SQLITE3DB.Model(&Reply{}).Where(&r).Count(&counts).Error; err != nil {
+	if err = database.DB.Model(&Reply{}).Where(&r).Count(&counts).Error; err != nil {
 		log.Print(err)
 	}
 
