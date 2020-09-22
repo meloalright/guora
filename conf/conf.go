@@ -9,8 +9,8 @@ import (
 
 type Configuration struct {
 	DB struct {
-		Driver  string `json:"driver"`
-		Addr    string `json:"addr"`
+		Driver string `json:"driver"`
+		Addr   string `json:"addr"`
 	} `json:"db"`
 	Redis struct {
 		Addr     string `json:"addr"`
@@ -38,6 +38,7 @@ func Config() *Configuration {
 
 	viper.SetConfigName("configuration")
 	viper.AddConfigPath("/etc/guora/")
+	viper.AddConfigPath(".")
 	viper.SetConfigType("yaml")
 
 	if err = viper.ReadInConfig(); err != nil {

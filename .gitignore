@@ -13,3 +13,4 @@ log.txt
 *.so
 *.dylib
 *.out
+configuration.yaml
