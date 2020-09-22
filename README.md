@@ -35,6 +35,8 @@ $ go mod download
 
 ```shell
 $ touch /etc/guora/configuration.yaml
+# OR
+$ touch configuration.yaml
 ```
 
 ```yaml
