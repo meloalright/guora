@@ -10,6 +10,7 @@ import (
 	"github.com/meloalright/guora/internal/model"
 )
 
+// GetUser func
 func GetUser(c *gin.Context) {
 
 	var u model.User
@@ -45,6 +46,7 @@ func GetUser(c *gin.Context) {
 	return
 }
 
+// GetUsers func
 func GetUsers(c *gin.Context) {
 
 	var u model.User
@@ -89,6 +91,7 @@ func GetUsers(c *gin.Context) {
 	return
 }
 
+// GetUsersCounts func
 func GetUsersCounts(c *gin.Context) {
 
 	var u model.User
@@ -112,6 +115,7 @@ func GetUsersCounts(c *gin.Context) {
 	return
 }
 
+// UpdateUser func
 func UpdateUser(c *gin.Context) {
 
 	var u model.User
@@ -153,6 +157,7 @@ func UpdateUser(c *gin.Context) {
 	return
 }
 
+// DeleteUser func
 func DeleteUser(c *gin.Context) {
 
 	var u model.User

@@ -11,7 +11,8 @@ import (
 	"github.com/meloalright/guora/internal/service/rdbservice"
 )
 
-func ViewProfile(c *gin.Context) {
+// Profile func
+func Profile(c *gin.Context) {
 
 	var p model.Profile
 	var a model.Answer

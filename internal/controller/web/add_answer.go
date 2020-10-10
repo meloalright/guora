@@ -6,12 +6,14 @@ import (
 	"github.com/meloalright/guora/internal/model"
 )
 
+// CreateAnswerInterface struct
 type CreateAnswerInterface struct {
 	Content    string `json:"content"`
 	Type       int    `json:"type"`
 	QuestionID int    `json:"questionID"`
 }
 
+// CreateAnswer func
 func CreateAnswer(c *gin.Context) {
 	var m CreateAnswerInterface
 	var a model.Answer

@@ -2,8 +2,10 @@
 
 # Guora
 
-[![license](https://img.shields.io/github/license/meloalright/guora)](https://opensource.org/licenses/MIT)
+[![go-report](https://goreportcard.com/badge/github.com/meloalright/guora)](https://goreportcard.com/report/github.com/meloalright/guora)
+[![codecov](https://codecov.io/gh/meloalright/guora/branch/master/graph/badge.svg)](https://codecov.io/gh/meloalright/guora)
 [![go-mod](https://img.shields.io/github/go-mod/go-version/meloalright/guora)](https://github.com/meloalright/guora)
+[![license](https://img.shields.io/github/license/meloalright/guora)](https://opensource.org/licenses/MIT)
 
 🖖🏻 A self-hosted Quora like web application written in Go
 

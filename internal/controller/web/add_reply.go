@@ -6,6 +6,7 @@ import (
 	"github.com/meloalright/guora/internal/model"
 )
 
+// CreateReplyInterface struct
 type CreateReplyInterface struct {
 	Content          string `json:"content"`
 	Type             int    `json:"type"`
@@ -13,6 +14,7 @@ type CreateReplyInterface struct {
 	ReplyToProfileID int    `json:"replyToProfileID"`
 }
 
+// CreateReply func
 func CreateReply(c *gin.Context) {
 	var m CreateReplyInterface
 	var r model.Reply

@@ -7,7 +7,8 @@ import (
 	"github.com/meloalright/guora/conf"
 )
 
-func ViewError(c *gin.Context) {
+// Error func
+func Error(c *gin.Context) {
 
 	var csrdata map[string]interface{}
 

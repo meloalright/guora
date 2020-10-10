@@ -11,6 +11,7 @@ import (
 	"github.com/meloalright/guora/internal/service/authorization"
 )
 
+// Authorizer middleware
 func Authorizer() gin.HandlerFunc {
 	return func(c *gin.Context) {
 

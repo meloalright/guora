@@ -7,6 +7,7 @@ import (
 	"github.com/meloalright/guora/internal/database"
 )
 
+// Question struct
 type Question struct {
 	GORMBase
 	Title             string   `json:"title"`
@@ -18,6 +19,7 @@ type Question struct {
 	AnswersCounts     int      `json:"answersCounts"`
 }
 
+// Get func
 func (q *Question) Get() (question Question, err error) {
 
 	if err = database.DB.Where(&q).Preload("QuestionProfile").First(&question).Error; err != nil {
@@ -27,6 +29,7 @@ func (q *Question) Get() (question Question, err error) {
 	return
 }
 
+// Create func
 func (q *Question) Create() (ra int64, err error) {
 
 	if err = database.DB.Create(&q).Error; err != nil {
@@ -38,6 +41,7 @@ func (q *Question) Create() (ra int64, err error) {
 	return
 }
 
+// Update func
 func (q *Question) Update() (ra int64, err error) {
 
 	if err = database.DB.Model(&q).Updates(q).Error; err != nil {
@@ -50,6 +54,7 @@ func (q *Question) Update() (ra int64, err error) {
 	return
 }
 
+// Delete func
 func (q *Question) Delete() (ra int64, err error) {
 
 	if err = database.DB.Delete(&q).Error; err != nil {
@@ -62,6 +67,7 @@ func (q *Question) Delete() (ra int64, err error) {
 	return
 }
 
+// GetList func
 func (q *Question) GetList(limit int, offset int) (questions []Question, err error) {
 
 	if err = database.DB.Offset(offset).Limit(limit).Where(&q).Preload("QuestionProfile").Find(&questions).Error; err != nil {
@@ -71,6 +77,7 @@ func (q *Question) GetList(limit int, offset int) (questions []Question, err err
 	return
 }
 
+// GetOrderList func
 func (q *Question) GetOrderList(limit int, offset int, order string) (questions []Question, err error) {
 
 	if err = database.DB.Offset(offset).Limit(limit).Where(&q).Preload("QuestionProfile").Order(order).Find(&questions).Error; err != nil {
@@ -80,6 +87,7 @@ func (q *Question) GetOrderList(limit int, offset int, order string) (questions 
 	return
 }
 
+// GetCounts func
 func (q *Question) GetCounts() (counts int, err error) {
 
 	if err = database.DB.Model(&Question{}).Where(&q).Count(&counts).Error; err != nil {
@@ -89,6 +97,7 @@ func (q *Question) GetCounts() (counts int, err error) {
 	return
 }
 
+// AfterDelete func
 func (q *Question) AfterDelete(tx *gorm.DB) (err error) {
 
 	var a Answer

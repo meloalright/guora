@@ -7,6 +7,7 @@ import (
 	"github.com/meloalright/guora/internal/database"
 )
 
+// Supporter struct
 type Supporter struct {
 	GORMBase
 	Answer    Answer  `json:"-" gorm:"ForeignKey:AnswerID"`
@@ -15,6 +16,7 @@ type Supporter struct {
 	ProfileID int     `json:"profileID"`
 }
 
+// Create func
 func (su *Supporter) Create() (ra int64, err error) {
 
 	if err = database.DB.Create(&su).Error; err != nil {
@@ -27,6 +29,7 @@ func (su *Supporter) Create() (ra int64, err error) {
 	return
 }
 
+// Delete func
 func (su *Supporter) Delete() (ra int64, err error) {
 
 	if err = database.DB.Delete(&su).Error; err != nil {
@@ -38,6 +41,7 @@ func (su *Supporter) Delete() (ra int64, err error) {
 	return
 }
 
+// AfterCreate func
 func (su *Supporter) AfterCreate(tx *gorm.DB) (err error) {
 
 	var a Answer
@@ -50,6 +54,7 @@ func (su *Supporter) AfterCreate(tx *gorm.DB) (err error) {
 	return
 }
 
+// AfterDelete func
 func (su *Supporter) AfterDelete(tx *gorm.DB) (err error) {
 
 	var a Answer

@@ -7,7 +7,8 @@ import (
 	"github.com/meloalright/guora/conf"
 )
 
-func ViewAdmin(c *gin.Context) {
+// Admin func
+func Admin(c *gin.Context) {
 
 	var csrdata map[string]interface{}
 

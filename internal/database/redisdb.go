@@ -2,12 +2,14 @@ package database
 
 import (
 	"context"
-	"github.com/meloalright/guora/conf"
 	"log"
+
+	"github.com/meloalright/guora/conf"
 
 	"github.com/go-redis/redis/v8"
 )
 
+// RDB reference
 var RDB *redis.Client
 var ctx = context.Background()
 

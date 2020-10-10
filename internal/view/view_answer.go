@@ -11,7 +11,8 @@ import (
 	"github.com/meloalright/guora/internal/service/rdbservice"
 )
 
-func ViewAnswer(c *gin.Context) {
+// Answer func
+func Answer(c *gin.Context) {
 	var a model.Answer
 	var q model.Question
 	var answer model.Answer

@@ -12,6 +12,7 @@ import (
 
 var ctx = context.Background()
 
+// RedisAddSupporter Service
 func RedisAddSupporter(AnswerID int, MemberID int) (err error) {
 
 	redisKey := getRedisKey(MemberID)
@@ -28,6 +29,7 @@ func RedisAddSupporter(AnswerID int, MemberID int) (err error) {
 
 }
 
+// RedisRemoveSupporter Service
 func RedisRemoveSupporter(AnswerID int, MemberID int) (err error) {
 
 	redisKey := getRedisKey(MemberID)
@@ -44,6 +46,7 @@ func RedisRemoveSupporter(AnswerID int, MemberID int) (err error) {
 
 }
 
+// RedisWrapSupported Service
 func RedisWrapSupported(answer *model.Answer, MemberID int) (err error) {
 
 	memMap, err := getRedisSmemMap(MemberID)
@@ -58,6 +61,7 @@ func RedisWrapSupported(answer *model.Answer, MemberID int) (err error) {
 	return
 }
 
+// RedisWrapListSupported Service
 func RedisWrapListSupported(answers []model.Answer, MemberID int) (err error) {
 
 	memMap, err := getRedisSmemMap(MemberID)
@@ -89,8 +93,8 @@ func getRedisSmemMap(MemberID int) (memMap map[string]bool, err error) {
 	}
 
 	memMap = make(map[string]bool)
-	for _, _AnswerId := range memList {
-		memMap[_AnswerId] = true
+	for _, _AnswerID := range memList {
+		memMap[_AnswerID] = true
 	}
 
 	return

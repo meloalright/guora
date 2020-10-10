@@ -1,22 +1,25 @@
 package authorization
 
 import (
-	"github.com/meloalright/guora/conf"
 	"time"
+
+	"github.com/meloalright/guora/conf"
+
+	"net/url"
+	"strings"
 
 	"github.com/dgrijalva/jwt-go"
 	"github.com/meloalright/guora/internal/model"
-	"net/url"
-	"strings"
 )
 
+// Gen Service
 func Gen(user model.User) (tokenString string, err error) {
 
 	SecretString := conf.Config().Secretkey
 
 	Secret := []byte(SecretString)
 
-	claims := AuthorizationClaims{
+	claims := Claims{
 		user.ID,
 		user.Type,
 		user.ProfileID,

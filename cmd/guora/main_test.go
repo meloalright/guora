@@ -22,7 +22,7 @@ func init() {
 
 	// create http.Handler
 	r := gin.Default()
-	SetupApiRouter(r)
+	SetupAPIRouter(r)
 
 	// run server using httptest
 	server = httptest.NewServer(r)
@@ -300,4 +300,3 @@ func TestReply(t *testing.T) {
 		Expect().
 		Status(http.StatusOK).JSON().Object().ContainsKey("status").ValueEqual("status", 200)
 }
-

@@ -7,7 +7,8 @@ import (
 	"github.com/meloalright/guora/conf"
 )
 
-func ViewLogin(c *gin.Context) {
+// Login func
+func Login(c *gin.Context) {
 
 	var csrdata map[string]interface{}
 

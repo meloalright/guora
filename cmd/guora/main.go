@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+
 	"github.com/gin-gonic/gin"
 	"github.com/meloalright/guora/conf"
 	"github.com/meloalright/guora/internal/controller/rest"
@@ -10,7 +11,8 @@ import (
 	"github.com/meloalright/guora/internal/view"
 )
 
-func SetupApiRouter(r *gin.Engine) {
+// SetupAPIRouter func
+func SetupAPIRouter(r *gin.Engine) {
 
 	r.Use(middleware.Logger())
 
@@ -81,6 +83,7 @@ func SetupApiRouter(r *gin.Engine) {
 	}
 }
 
+// SetupViewRouter func
 func SetupViewRouter(r *gin.Engine) {
 
 	// Default Group: view
@@ -89,13 +92,13 @@ func SetupViewRouter(r *gin.Engine) {
 		r.LoadHTMLGlob("web/*.html")
 		r.Static("/static", "web/static")
 
-		r.GET("/", middleware.Authorizer(), view.ViewIndex)
-		r.GET("/profile", middleware.Authorizer(), view.ViewProfile)
-		r.GET("/question", middleware.Authorizer(), view.ViewQuestion)
-		r.GET("/answer", middleware.Authorizer(), view.ViewAnswer)
-		r.GET("/admin", middleware.Authorizer(), middleware.Administrator(), view.ViewAdmin)
-		r.GET("/login", view.ViewLogin)
-		r.GET("/error", view.ViewError)
+		r.GET("/", middleware.Authorizer(), view.Index)
+		r.GET("/profile", middleware.Authorizer(), view.Profile)
+		r.GET("/question", middleware.Authorizer(), view.Question)
+		r.GET("/answer", middleware.Authorizer(), view.Answer)
+		r.GET("/admin", middleware.Authorizer(), middleware.Administrator(), view.Admin)
+		r.GET("/login", view.Login)
+		r.GET("/error", view.Error)
 	}
 
 }
@@ -109,7 +112,7 @@ func main() {
 	}
 
 	r := gin.Default()
-	SetupApiRouter(r)
+	SetupAPIRouter(r)
 	SetupViewRouter(r)
 
 	r.Run(conf.Config().Address)

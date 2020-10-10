@@ -10,6 +10,7 @@ import (
 	"github.com/meloalright/guora/internal/model"
 )
 
+// GetComment func
 func GetComment(c *gin.Context) {
 
 	var co model.Comment
@@ -45,6 +46,7 @@ func GetComment(c *gin.Context) {
 	return
 }
 
+// UpdateComment func
 func UpdateComment(c *gin.Context) {
 
 	var co model.Comment
@@ -88,6 +90,7 @@ func UpdateComment(c *gin.Context) {
 	return
 }
 
+// DeleteComment func
 func DeleteComment(c *gin.Context) {
 
 	var co model.Comment
@@ -123,6 +126,7 @@ func DeleteComment(c *gin.Context) {
 	return
 }
 
+// GetComments func
 func GetComments(c *gin.Context) {
 
 	var co model.Comment
@@ -168,6 +172,7 @@ func GetComments(c *gin.Context) {
 	return
 }
 
+// GetCommentsCounts func
 func GetCommentsCounts(c *gin.Context) {
 
 	var co model.Comment

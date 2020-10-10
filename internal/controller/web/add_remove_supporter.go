@@ -9,6 +9,7 @@ import (
 	"github.com/meloalright/guora/internal/service/rdbservice"
 )
 
+// CreateSupporter func
 func CreateSupporter(c *gin.Context) {
 	var su model.Supporter
 	var ra int64
@@ -67,6 +68,7 @@ func CreateSupporter(c *gin.Context) {
 	return
 }
 
+// DeleteSupporter func
 func DeleteSupporter(c *gin.Context) {
 	var su model.Supporter
 	var ra int64

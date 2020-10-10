@@ -9,6 +9,7 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
+// User struct
 type User struct {
 	GORMBase
 	Mail       string  `json:"mail" gorm:"type:varchar(100);unique_index"`
@@ -19,6 +20,7 @@ type User struct {
 	ProfileID  int     `json:"profileID"`
 }
 
+// Get func
 func (u *User) Get() (user User, err error) {
 
 	if err = database.DB.Where(&u).Preload("Profile").First(&user).Error; err != nil {
@@ -28,6 +30,7 @@ func (u *User) Get() (user User, err error) {
 	return
 }
 
+// Create func
 func (u *User) Create() (ra int64, err error) {
 
 	if err = database.DB.Create(&u).Error; err != nil {
@@ -40,6 +43,7 @@ func (u *User) Create() (ra int64, err error) {
 	return
 }
 
+// Update func
 func (u *User) Update() (ra int64, err error) {
 
 	if err = database.DB.Model(&u).Updates(u).Error; err != nil {
@@ -51,6 +55,7 @@ func (u *User) Update() (ra int64, err error) {
 	return
 }
 
+// Delete func
 func (u *User) Delete() (ra int64, err error) {
 	if err = database.DB.Delete(&u).Error; err != nil {
 		ra = -1
@@ -62,6 +67,7 @@ func (u *User) Delete() (ra int64, err error) {
 	return
 }
 
+// GetList func
 func (u *User) GetList(limit int, offset int) (users []User, err error) {
 
 	if err = database.DB.Offset(offset).Limit(limit).Find(&users).Error; err != nil {
@@ -71,6 +77,7 @@ func (u *User) GetList(limit int, offset int) (users []User, err error) {
 	return
 }
 
+// GetCounts func
 func (u *User) GetCounts() (counts int, err error) {
 
 	if err = database.DB.Model(&User{}).Count(&counts).Error; err != nil {
@@ -80,6 +87,7 @@ func (u *User) GetCounts() (counts int, err error) {
 	return
 }
 
+// BeforeDelete func
 func (u *User) BeforeDelete(tx *gorm.DB) (err error) {
 	if u.ID == 1 {
 		err = errors.New("Can Not Remove Admin")
@@ -87,6 +95,7 @@ func (u *User) BeforeDelete(tx *gorm.DB) (err error) {
 	return
 }
 
+// AfterCreate func
 func (u *User) AfterCreate(tx *gorm.DB) (err error) {
 
 	bytes, err := bcrypt.GenerateFromPassword([]byte(u.Password), bcrypt.DefaultCost)

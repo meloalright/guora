@@ -7,6 +7,7 @@ import (
 	"github.com/meloalright/guora/internal/database"
 )
 
+// Reply struct
 type Reply struct {
 	GORMBase
 	Content            string  `json:"content"`
@@ -19,6 +20,7 @@ type Reply struct {
 	ReplyToProfileID   int     `json:"replyToProfileID"`
 }
 
+// Get func
 func (r *Reply) Get() (reply Reply, err error) {
 
 	if err = database.DB.Where(&r).Preload("ReplyFromProfile").Preload("ReplyToProfile").First(&reply).Error; err != nil {
@@ -28,6 +30,7 @@ func (r *Reply) Get() (reply Reply, err error) {
 	return
 }
 
+// Create func
 func (r *Reply) Create() (ra int64, err error) {
 
 	if err = database.DB.Create(&r).Error; err != nil {
@@ -40,6 +43,7 @@ func (r *Reply) Create() (ra int64, err error) {
 	return
 }
 
+// Update func
 func (r *Reply) Update() (ra int64, err error) {
 
 	if err = database.DB.Model(&r).Updates(r).Error; err != nil {
@@ -51,6 +55,7 @@ func (r *Reply) Update() (ra int64, err error) {
 	return
 }
 
+// Delete func
 func (r *Reply) Delete() (ra int64, err error) {
 
 	if err = database.DB.Where(&r).First(&r).Delete(&r).Error; err != nil {
@@ -62,6 +67,7 @@ func (r *Reply) Delete() (ra int64, err error) {
 	return
 }
 
+// GetList func
 func (r *Reply) GetList(limit int, offset int) (replies []Reply, err error) {
 
 	if err = database.DB.Offset(offset).Limit(limit).Preload("ReplyFromProfile").Preload("ReplyToProfile").Find(&replies, r).Error; err != nil {
@@ -71,6 +77,7 @@ func (r *Reply) GetList(limit int, offset int) (replies []Reply, err error) {
 	return
 }
 
+// GetCounts func
 func (r *Reply) GetCounts() (counts int, err error) {
 
 	if err = database.DB.Model(&Reply{}).Where(&r).Count(&counts).Error; err != nil {
@@ -80,6 +87,7 @@ func (r *Reply) GetCounts() (counts int, err error) {
 	return
 }
 
+// AfterCreate func
 func (r *Reply) AfterCreate(tx *gorm.DB) (err error) {
 
 	var co Comment
@@ -92,6 +100,7 @@ func (r *Reply) AfterCreate(tx *gorm.DB) (err error) {
 	return
 }
 
+// AfterDelete func
 func (r *Reply) AfterDelete(tx *gorm.DB) (err error) {
 
 	var co Comment

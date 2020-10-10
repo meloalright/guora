@@ -10,6 +10,7 @@ import (
 	"github.com/meloalright/guora/internal/model"
 )
 
+// GetReply func
 func GetReply(c *gin.Context) {
 
 	var r model.Reply
@@ -45,6 +46,7 @@ func GetReply(c *gin.Context) {
 	return
 }
 
+// UpdateReply func
 func UpdateReply(c *gin.Context) {
 
 	var r model.Reply
@@ -86,6 +88,7 @@ func UpdateReply(c *gin.Context) {
 	return
 }
 
+// DeleteReply func
 func DeleteReply(c *gin.Context) {
 
 	var r model.Reply
@@ -123,6 +126,7 @@ func DeleteReply(c *gin.Context) {
 	return
 }
 
+// GetReplies func
 func GetReplies(c *gin.Context) {
 
 	var r model.Reply
@@ -169,6 +173,7 @@ func GetReplies(c *gin.Context) {
 	return
 }
 
+// GetRepliesCounts func
 func GetRepliesCounts(c *gin.Context) {
 
 	var r model.Reply

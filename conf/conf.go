@@ -7,10 +7,11 @@ import (
 	"github.com/spf13/viper"
 )
 
+// Configuration struct
 type Configuration struct {
 	DB struct {
-		Driver  string `json:"driver"`
-		Addr    string `json:"addr"`
+		Driver string `json:"driver"`
+		Addr   string `json:"addr"`
 	} `json:"db"`
 	Redis struct {
 		Addr     string `json:"addr"`
@@ -29,6 +30,7 @@ type Configuration struct {
 
 var conf *Configuration
 
+// Config get instance
 func Config() *Configuration {
 	if conf != nil {
 		return conf

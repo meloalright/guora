@@ -8,8 +8,10 @@ import (
 	"github.com/meloalright/guora/internal/h"
 )
 
+// AvatarDir path
 var AvatarDir = "./web/static/avatar"
 
+// FileAvatarResolve func
 func FileAvatarResolve(c *gin.Context) {
 
 	ProfileID, exist := c.Get("pid")

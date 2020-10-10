@@ -7,6 +7,7 @@ import (
 	"github.com/meloalright/guora/internal/database"
 )
 
+// Answer struct
 type Answer struct {
 	GORMBase
 	Content          string      `json:"content" gorm:"type:varchar(4000)"`
@@ -22,6 +23,7 @@ type Answer struct {
 	Supported        bool        `json:"supported" gorm:"-"`
 }
 
+// Get func
 func (a *Answer) Get() (answer Answer, err error) {
 
 	if err = database.DB.Where(&a).Preload("Question").Preload("AnswerProfile").First(&answer).Error; err != nil {
@@ -31,6 +33,7 @@ func (a *Answer) Get() (answer Answer, err error) {
 	return
 }
 
+// Create func
 func (a *Answer) Create() (ra int64, err error) {
 
 	if err = database.DB.Create(&a).Error; err != nil {
@@ -43,6 +46,7 @@ func (a *Answer) Create() (ra int64, err error) {
 	return
 }
 
+// Update func
 func (a *Answer) Update() (ra int64, err error) {
 
 	if err = database.DB.Model(&a).Updates(a).Error; err != nil {
@@ -54,6 +58,7 @@ func (a *Answer) Update() (ra int64, err error) {
 	return
 }
 
+// Delete func
 func (a *Answer) Delete() (ra int64, err error) {
 
 	if err = database.DB.Where(&a).First(&a).Delete(&a).Error; err != nil {
@@ -65,6 +70,7 @@ func (a *Answer) Delete() (ra int64, err error) {
 	return
 }
 
+// GetList func
 func (a *Answer) GetList(limit int, offset int) (answers []Answer, err error) {
 
 	if err = database.DB.Offset(offset).Limit(limit).Preload("Question").Preload("AnswerProfile").Find(&answers, a).Error; err != nil {
@@ -74,6 +80,7 @@ func (a *Answer) GetList(limit int, offset int) (answers []Answer, err error) {
 	return
 }
 
+// GetOrderList func
 func (a *Answer) GetOrderList(limit int, offset int, order string) (answers []Answer, err error) {
 
 	if err = database.DB.Offset(offset).Limit(limit).Preload("Question").Preload("AnswerProfile").Order(order).Find(&answers, a).Error; err != nil {
@@ -83,6 +90,7 @@ func (a *Answer) GetOrderList(limit int, offset int, order string) (answers []An
 	return
 }
 
+// GetCounts func
 func (a *Answer) GetCounts() (counts int, err error) {
 
 	if err = database.DB.Model(&Answer{}).Where(&a).Count(&counts).Error; err != nil {
@@ -92,6 +100,7 @@ func (a *Answer) GetCounts() (counts int, err error) {
 
 }
 
+// AfterCreate func
 func (a *Answer) AfterCreate(tx *gorm.DB) (err error) {
 
 	var q Question
@@ -104,6 +113,7 @@ func (a *Answer) AfterCreate(tx *gorm.DB) (err error) {
 	return
 }
 
+// AfterDelete func
 func (a *Answer) AfterDelete(tx *gorm.DB) (err error) {
 
 	var q Question

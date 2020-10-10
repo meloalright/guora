@@ -11,7 +11,8 @@ import (
 	// "strconv"
 )
 
-func ViewIndex(c *gin.Context) {
+// Index func
+func Index(c *gin.Context) {
 
 	var a model.Answer
 	var q model.Question

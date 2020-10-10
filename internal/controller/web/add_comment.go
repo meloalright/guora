@@ -6,12 +6,14 @@ import (
 	"github.com/meloalright/guora/internal/model"
 )
 
+// CreateCommentInterface interface
 type CreateCommentInterface struct {
 	Content  string `json:"content"`
 	Type     int    `json:"type"`
 	AnswerID int    `json:"answerID"`
 }
 
+// CreateComment func
 func CreateComment(c *gin.Context) {
 	var m CreateCommentInterface
 	var co model.Comment

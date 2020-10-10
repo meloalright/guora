@@ -1,15 +1,19 @@
 package database
 
 import (
-	"github.com/meloalright/guora/conf"
 	"log"
 
+	"github.com/meloalright/guora/conf"
+
 	"github.com/jinzhu/gorm"
-	_ "github.com/jinzhu/gorm/dialects/sqlite"
+
+	// for multi select of db
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
+	_ "github.com/jinzhu/gorm/dialects/sqlite"
 )
 
+// DB reference
 var DB *gorm.DB
 var err error
 

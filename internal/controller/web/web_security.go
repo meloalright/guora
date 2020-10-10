@@ -12,11 +12,13 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
+// LoginInterface struct
 type LoginInterface struct {
 	Mail     string `json:"mail"`
 	Password string `json:"password"`
 }
 
+// SecurityLogin func
 func SecurityLogin(c *gin.Context) {
 
 	var s LoginInterface
@@ -58,6 +60,7 @@ func SecurityLogin(c *gin.Context) {
 	return
 }
 
+// login func
 func (s *LoginInterface) login() (ra int64, user model.User, err error) {
 
 	var u model.User
@@ -80,12 +83,14 @@ func (s *LoginInterface) login() (ra int64, user model.User, err error) {
 	return
 }
 
+// SignInterface struct
 type SignInterface struct {
 	Name     string `json:"name"`
 	Mail     string `json:"mail"`
 	Password string `json:"password"`
 }
 
+// SecuritySign func
 func SecuritySign(c *gin.Context) {
 
 	var s SignInterface
@@ -126,6 +131,7 @@ func (s *SignInterface) sign() (ra int64, err error) {
 	return
 }
 
+// SecurityLogout func
 func SecurityLogout(c *gin.Context) {
 
 	http.SetCookie(c.Writer, &http.Cookie{

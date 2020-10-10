@@ -14,6 +14,7 @@ import (
 
 var ctx = context.Background()
 
+// GetAnswer func
 func GetAnswer(c *gin.Context) {
 
 	var a model.Answer
@@ -72,6 +73,7 @@ func GetAnswer(c *gin.Context) {
 	return
 }
 
+// UpdateAnswer func
 func UpdateAnswer(c *gin.Context) {
 
 	var a model.Answer
@@ -116,6 +118,7 @@ func UpdateAnswer(c *gin.Context) {
 	return
 }
 
+// DeleteAnswer func
 func DeleteAnswer(c *gin.Context) {
 
 	var a model.Answer
@@ -153,6 +156,7 @@ func DeleteAnswer(c *gin.Context) {
 	return
 }
 
+// GetAnswers func
 func GetAnswers(c *gin.Context) {
 
 	var a model.Answer
@@ -243,6 +247,7 @@ func GetAnswers(c *gin.Context) {
 	return
 }
 
+// GetAnswersCounts func
 func GetAnswersCounts(c *gin.Context) {
 
 	var a model.Answer

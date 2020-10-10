@@ -9,6 +9,7 @@ import (
 	"github.com/meloalright/guora/internal/model"
 )
 
+// Administrator middleware
 func Administrator() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		ID, exist := c.Get("uid")

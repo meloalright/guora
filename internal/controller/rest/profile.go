@@ -10,6 +10,7 @@ import (
 	"github.com/meloalright/guora/internal/model"
 )
 
+// GetProfile func
 func GetProfile(c *gin.Context) {
 
 	var p model.Profile
@@ -45,6 +46,7 @@ func GetProfile(c *gin.Context) {
 	return
 }
 
+// UpdateProfile func
 func UpdateProfile(c *gin.Context) {
 
 	var p model.Profile
@@ -85,6 +87,7 @@ func UpdateProfile(c *gin.Context) {
 	return
 }
 
+// DeleteProfile func
 func DeleteProfile(c *gin.Context) {
 
 	var p model.Profile
@@ -122,6 +125,7 @@ func DeleteProfile(c *gin.Context) {
 	return
 }
 
+// GetProfiles func
 func GetProfiles(c *gin.Context) {
 
 	var p model.Profile
@@ -166,6 +170,7 @@ func GetProfiles(c *gin.Context) {
 	return
 }
 
+// GetProfilesCounts func
 func GetProfilesCounts(c *gin.Context) {
 
 	var p model.Profile
