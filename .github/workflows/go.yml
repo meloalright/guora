@@ -24,7 +24,7 @@ jobs:
     - name: Get dependencies
       run: |
         go mod download
-        copy configuration.example.yaml /etc/guora/configuration.yaml
+        mv configuration.example.yaml /etc/guora/configuration.yaml
 
     - name: Build
       run: go build ./cmd/guora
