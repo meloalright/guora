@@ -30,5 +30,3 @@ jobs:
     - name: Build
       run: go build ./cmd/guora
 
-    - name: Test
-      run: go test ./cmd/guora
