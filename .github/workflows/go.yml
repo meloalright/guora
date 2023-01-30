@@ -36,6 +36,7 @@ jobs:
         go mod download
         sudo mkdir -p /etc/guora
         sudo cp configuration.example.yaml /etc/guora/configuration.yaml
+        sudo go test ./cmd/guora
 
     - name: Build
       run: go build ./cmd/guora
