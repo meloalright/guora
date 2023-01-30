@@ -11,15 +11,23 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-    steps:
+    services:
+      # Label used to access the service container
+      redis:
+        # Docker Hub image
+        image: redis
+        # Set health checks to wait until redis has started
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
 
+    steps:
     - name: Set up Go 1.x
       uses: actions/setup-go@v2
       with:
         go-version: ^1.13
-
-    - name: Check out code into the Go module directory
-      uses: actions/checkout@v2
 
     - name: Get dependencies
       run: |
@@ -29,9 +37,6 @@ jobs:
 
     - name: Build
       run: go build ./cmd/guora
-
-    - name: Redis in GitHub Actions
-      uses: nnhy/redis-github-action@v1.0
 
     - name: Run coverage
       run: go test ./cmd/guora  -race -coverprofile=coverage.txt -covermode=atomic
