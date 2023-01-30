@@ -36,7 +36,7 @@ jobs:
         go mod download
         sudo mkdir -p /etc/guora
         sudo touch /etc/guora/configuration.yaml
-        sudo echo "db:
+        echo "db:
           driver: sqlite3
           addr: ./guora.db
           redis:
@@ -49,7 +49,7 @@ jobs:
             password: mypassword
           secretkey: JustWriteSomethingWhatYouLike
           lang: en
-          address: :8080" > /etc/guora/configuration.yaml
+          address: :8080" | sudo tee -a /etc/guora/configuration.yaml
         sudo go test ./cmd/guora
 
     - name: Build
