@@ -36,19 +36,19 @@ jobs:
         go mod download
         sudo mkdir -p /etc/guora
         sudo echo "db:
-driver: sqlite3
-addr: ./guora.db
-redis:
-  addr: localhost:6379
-  password:
-  db: 0
-admin:
-  name: Development (开发账号)
-  mail: mymail
-  password: mypassword
-secretkey: JustWriteSomethingWhatYouLike
-lang: en
-address: :8080" > /etc/guora/configuration.yaml
+          driver: sqlite3
+          addr: ./guora.db
+          redis:
+            addr: localhost:6379
+            password:
+            db: 0
+          admin:
+            name: Development (开发账号)
+            mail: mymail
+            password: mypassword
+          secretkey: JustWriteSomethingWhatYouLike
+          lang: en
+          address: :8080" > /etc/guora/configuration.yaml
         sudo go test ./cmd/guora
 
     - name: Build
