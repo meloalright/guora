@@ -21,12 +21,6 @@ jobs:
     - name: Check out code into the Go module directory
       uses: actions/checkout@v2
 
-    - name: codecov
-      run: |
-        curl -Os https://uploader.codecov.io/latest/linux/codecov
-        chmod +x codecov
-        ./codecov
-
     - name: Get dependencies
       run: |
         go mod download
@@ -35,4 +29,11 @@ jobs:
 
     - name: Build
       run: go build ./cmd/guora
+      
+    - name: Run coverage
+      run: go test ./cmd/guora  -race -coverprofile=coverage.txt -covermode=atomic
+
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+    
 
