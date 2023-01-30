@@ -31,7 +31,7 @@ jobs:
     - name: Check out code into the Go module directory
       uses: actions/checkout@v2
 
-    - name: Get dependencies
+    - name: Run
       run: |
         go mod download
         sudo mkdir -p /etc/guora
@@ -50,7 +50,11 @@ jobs:
           secretkey: JustWriteSomethingWhatYouLike
           lang: en
           address: :8080" | sudo tee -a /etc/guora/configuration.yaml
-        sudo go test ./cmd/guora
+        sudo go test ./cmd/guora -race -coverprofile=coverage.txt -covermode=atomic
+
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+        
 
     - name: Build
       run: go build ./cmd/guora
