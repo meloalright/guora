@@ -1,4 +1,4 @@
-name: Go
+name: CI
 
 on:
   push:
@@ -11,6 +11,16 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+    services:
+      redis:
+        image: redis
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 6379:6379
     steps:
 
     - name: Set up Go 1.x
@@ -22,11 +32,34 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Get dependencies
-      run: |
-        go mod download
-        sudo mkdir -p /etc/guora
-        sudo cp configuration.example.yaml /etc/guora/configuration.yaml
+      run: go mod download
 
+    - name: Setup configuration
+      run: |
+        sudo mkdir -p /etc/guora
+        sudo touch /etc/guora/configuration.yaml
+        echo "db:
+          driver: sqlite3
+          addr: ./guora.db
+          redis:
+            addr: localhost:6379
+            password:
+            db: 0
+          admin:
+            name: Development (开发账号)
+            mail: mymail
+            password: mypassword
+          secretkey: JustWriteSomethingWhatYouLike
+          lang: en
+          address: :8080" | sudo tee -a /etc/guora/configuration.yaml
+    
     - name: Build
       run: go build ./cmd/guora
+  
+    - name: Run test
+      run: sudo go test ./cmd/guora -race -coverprofile=coverage.txt -covermode=atomic
+
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+        
 
