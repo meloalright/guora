@@ -29,7 +29,10 @@ jobs:
 
     - name: Build
       run: go build ./cmd/guora
-      
+
+    - name: Redis in GitHub Actions
+      uses: nnhy/redis-github-action@v1.0
+
     - name: Run coverage
       run: go test ./cmd/guora  -race -coverprofile=coverage.txt -covermode=atomic
 
