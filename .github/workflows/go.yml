@@ -24,24 +24,24 @@ jobs:
           --health-retries 5
 
     steps:
-    - name: Set up Go 1.x
-      uses: actions/setup-go@v2
-      with:
-        go-version: ^1.13
+      - name: Set up Go 1.x
+        uses: actions/setup-go@v2
+        with:
+          go-version: ^1.13
 
-    - name: Get dependencies
-      run: |
-        go mod download
-        sudo mkdir -p /etc/guora
-        sudo cp configuration.example.yaml /etc/guora/configuration.yaml
+      - name: Get dependencies
+        run: |
+          go mod download
+          sudo mkdir -p /etc/guora
+          sudo cp configuration.example.yaml /etc/guora/configuration.yaml
 
-    - name: Build
-      run: go build ./cmd/guora
+      - name: Build
+        run: go build ./cmd/guora
 
-    - name: Run coverage
-      run: go test ./cmd/guora  -race -coverprofile=coverage.txt -covermode=atomic
+      - name: Run coverage
+        run: go test ./cmd/guora  -race -coverprofile=coverage.txt -covermode=atomic
 
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v3
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
     
 
