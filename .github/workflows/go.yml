@@ -35,6 +35,7 @@ jobs:
       run: |
         go mod download
         sudo mkdir -p /etc/guora
+        sudo touch /etc/guora/configuration.yaml
         sudo echo "db:
           driver: sqlite3
           addr: ./guora.db
