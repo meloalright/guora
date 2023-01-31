@@ -57,7 +57,9 @@ jobs:
       run: go build ./cmd/guora
   
     - name: Run test
-      run: sudo go test ./cmd/guora -race -coverprofile=coverage.txt -covermode=atomic
+      run: |
+        sudo go test ./cmd/guora
+        sudo go test ./cmd/guora -race -coverprofile=coverage.txt -covermode=atomic
 
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v3
